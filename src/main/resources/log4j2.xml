@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+<Properties>
+    <Property name="filename">C:/Users/nutri/RestAssured/RestAPI/Results/Logs.log</Property>
+    <Property name="archive">${log-path}/archive</Property>
+</Properties>
+<Appenders>
+    <Console name="Console-Appender" target="SYSTEM_OUT">
+        <PatternLayout>
+            <pattern>
+                [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+            </pattern>>
+        </PatternLayout>
+    </Console>
+    <File name="File-Appender" fileName="C:/Users/nutri/RestAssured/RestAPI/Results/xmlfilelog.log" >
+        <PatternLayout>
+            <pattern>
+                [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+            </pattern>
+        </PatternLayout>
+    </File>        
+</Appenders>
+<Loggers>
+           <Logger name="MMBODealEnrichValidate.java" level="debug">
+               <AppenderRef ref="File-Appender" level="error"/>               
+           </Logger>
+        <Root level="debug">
+            <AppenderRef ref="Console-Appender"/>
+        </Root>
+    </Loggers>
+</Configuration>
